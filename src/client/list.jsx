@@ -3,7 +3,14 @@ import React, {Component} from 'react';
 class List extends Component {
   constructor(props, context) {
     super(props, context);
+    // this.state = this.context.data;
+    console.log('this context data :');
+    console.log(this.context.data && this.context.data);
+    // console.log('==============');
+    // console.log('data window :');
+    // console.log(typeof window);
     this.state = this.context.data || window.__INITIAL_STATE__ || {items: []};
+    // this.state = this.context.data;
   }
 
   componentDidMount() {
@@ -11,11 +18,13 @@ class List extends Component {
   }
 
   fetchList() {
-    fetch('http://jsonplaceholder.typicode.com/users')
+    fetch('http://localhost:3000/api/list')
       .then(res => {
+        console.log(res);
         return res.json();
       })
       .then(data => {
+        console.log(data);
         this.setState({
           items: data
         });

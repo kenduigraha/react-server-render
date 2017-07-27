@@ -5,7 +5,7 @@ module.exports = {
 
   output: {
     filename: 'app.js',
-    path: path.join('public/javascripts/')
+    path: path.join(__dirname, 'public/javascripts/')
   },
 
   resolve: {
